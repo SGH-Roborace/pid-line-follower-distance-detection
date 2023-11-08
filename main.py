@@ -1,4 +1,5 @@
 #!/usr/bin/env pybricks-micropython
+import time
 from pybricks.hubs import EV3Brick
 from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
                                  InfraredSensor, UltrasonicSensor, GyroSensor)
@@ -17,3 +18,9 @@ ev3 = EV3Brick()
 
 
 # Write your program here.
+drife = DriveBase(Motor(Port.B), Motor(Port.A), 43, 88)
+for i in range(4):
+    drife.drive(200, -180)
+    time.sleep(2)
+    drife.drive(-200, -180)
+    time.sleep(2)
