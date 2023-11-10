@@ -31,26 +31,33 @@ while True:
     zickzack.pop(0)
 '''
 
+black = 8
+white = 80
+mid = (white - black)/2
+max_angle = 70
+max_speed = 2.5  #in dm/s
+max_speed_reduction = 100 #in mm/s
+
 while True:
     # Value of white 54 value of black 8 difference 46
     # linear steering from 70 degrees
     # distance between 15 and 25
     distance = weg.distance()
     reflection = farbe.reflection()
-    '''
+
     if distance > 250:
         distance = 250
     elif distance < 150:
         distance = 150
 
 
-    if reflection > 80:
-        reflection = 80
-    elif reflection < 8:
-        reflection = 8
-    '''
-    speed = int((distance-150) * 3 - abs((reflection-8-35)/35)**3*100) # results in speed between 0 and 300
-    angle = (reflection-8-36) * -2.4
+    if reflection > white:
+        reflection = white
+    elif reflection < black:
+        reflection = black
+
+    speed = int((distance-150) * max_speed - abs((reflection-black-mid)/mid)**3*max_speed_reduction) # results in speed between 0 and 300
+    angle = int((reflection-black-mid)/mid * max_angle)
     drife.drive(max(speed, 0), angle)
 '''
 while True:
