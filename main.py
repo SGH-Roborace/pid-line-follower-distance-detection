@@ -7,7 +7,7 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-
+import threading
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
@@ -71,18 +71,36 @@ while True:
 
 
 
+black = 8
+white = 80
+mid = (white - black)/2
+max_angle = 70
+max_speed = 2.5  #in dm/s
+max_speed_reduction = 100 #in mm/s
+distance = 250
+
+def set_distance():
+    global distance
+    while True:
+        distance = weg.distance()
+        if distance > 250:
+            distance = 250
+        elif distance < 150:
+            distance = 150
+
+
+threading.Thread(target=set_distance).start()
+
 while True:
     # Value of white 54 value of black 8 difference 46
     # linear steering from 70 degrees
     # distance between 15 and 25
-    distance = weg.distance()
     reflection = farbe.reflection()
-    '''
-    if distance > 250:
-        distance = 250
-    elif distance < 150:
-        distance = 150
 
+    if reflection > white:
+        reflection = white
+    elif reflection < black:
+        reflection = black
 
     if reflection > 80:
         reflection = 80
