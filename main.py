@@ -17,7 +17,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 ev3 = EV3Brick()
 
 # Write your program here.
-drife = DriveBase(Motor(Port.B), Motor(Port.A), 43, 88)
+drife = DriveBase(Motor(Port.B), Motor(Port.A), 70, 136)
 farbe = ColorSensor(Port.S1)
 weg = UltrasonicSensor(Port.S2)
 zickzack = 50
@@ -30,6 +30,46 @@ while True:
     drife.drive(max((bing)-abs(zickzack),0), (zickzack-50)*3.6 )
     zickzack.pop(0)
 '''
+beans = 1
+start = 0
+while True:
+    distance = weg.distance()
+    reflection = farbe.reflection()
+    if distance > 250:
+        distance = 250
+    elif distance < 150:
+        distance = 150
+
+    if reflection < 20:
+        black1 = reflection
+        black2 = reflection
+        beans *= -1
+        end = int(time.time())
+        time_dif = end-start-1
+        if time_dif > 4:
+            time_dif = 4
+        angle = 12*time_dif
+        while reflection < 30:
+            speed = (distance-150) * 6 # results in speed between 0 and 300
+            drife.drive(min(-speed, 0), -angle*beans)
+            distance = weg.distance()
+            reflection = farbe.reflection()
+            black2 = black1
+            black1 = reflection
+            if distance > 250:
+                distance = 250
+            elif distance < 150:
+                distance = 150
+        start = int(time.time())
+    
+    speed = (distance-150) * 6 # results in speed between 0 and 300
+    angle = 70
+    drife.drive(-speed, angle*beans)
+
+
+
+
+
 
 while True:
     # Value of white 54 value of black 8 difference 46
@@ -51,7 +91,8 @@ while True:
     '''
     speed = int((distance-150) * 3 - abs((reflection-8-35)/35)**3*100) # results in speed between 0 and 300
     angle = (reflection-8-36) * -2.4
-    drife.drive(max(speed, 0), angle)
+    drife.drive(min(-speed, 0), angle)
+    
 '''
 while True:
     ev3.screen.clear()
