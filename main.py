@@ -43,15 +43,12 @@ while True:
     if reflection < 20:
         black1 = reflection
         black2 = reflection
-        beans *= -1
-        end = int(time.time())
-        time_dif = end-start-1
-        if time_dif > 4:
-            time_dif = 4
-        angle = 12*time_dif
-        while reflection < 30:
+        
+        
+        while reflection < 40:
+            angle = 5
             speed = (distance-150) * 6 # results in speed between 0 and 300
-            drife.drive(min(-speed, 0), -angle*beans)
+            drife.drive(min(-speed, 0), -angle*beans*(20/reflection))
             distance = weg.distance()
             reflection = farbe.reflection()
             black2 = black1
@@ -60,11 +57,15 @@ while True:
                 distance = 250
             elif distance < 150:
                 distance = 150
-        start = int(time.time())
+        beans *= -1
+        start1 = int(time.time())
     
+    end1 = int(time.time())
+    time_dif1 = abs(end1-start1)
     speed = (distance-150) * 6 # results in speed between 0 and 300
-    angle = 70
-    drife.drive(-speed, angle*beans)
+    angle = 180
+    drife.drive(-speed, angle*beans-(time_dif1*6))
+
 
 
 
