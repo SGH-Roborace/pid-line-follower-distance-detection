@@ -111,7 +111,7 @@ while True:
     angle = (reflection-8-36) * -2.4
     drife.drive(min(-speed, 0), angle)
     
-'''
+
 while True:
     ev3.screen.clear()
     reflection = farbe.reflection()
