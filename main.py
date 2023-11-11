@@ -17,10 +17,10 @@ import threading
 ev3 = EV3Brick()
 
 # Write your program here.
-drife = DriveBase(Motor(Port.B), Motor(Port.A), 70, 136)
+drife = DriveBase(Motor(Port.B), Motor(Port.A), 70*36/20, 136)
 farbe = ColorSensor(Port.S1)
 weg = UltrasonicSensor(Port.S2)
-zickzack = 50
+zickzack = 44
 '''
 while True:
     zickzack = zickzack*1/3 farbe.reflection()*2/3
@@ -32,40 +32,49 @@ while True:
 '''
 beans = 1
 start = 0
+'''
+target = 10
+integral = 10
+Kp,Ki,Kd = 1,1,1
+value = reflection
+
+error = target-value
+integral += error
+derivative = error - last_error
+'''
+angy = 0
 while True:
     distance = weg.distance()
     reflection = farbe.reflection()
+    zickzack += reflection
+    zickzack *= 2
     if distance > 250:
         distance = 250
     elif distance < 150:
         distance = 150
 
     if reflection < 20:
-        black1 = reflection
-        black2 = reflection
-        
-        
-        while reflection < 40:
-            angle = 5
+        angle = 40
+        angy = -angle*beans*(reflection/10)
+        while reflection < 70:
+            zickzack += reflection
+            zickzack *= 2
             speed = (distance-150) * 6 # results in speed between 0 and 300
-            drife.drive(min(-speed, 0), -angle*beans*(20/reflection))
+            drife.drive(max(speed, 0), angle*beans*(abs(zickzack-30)/80))
             distance = weg.distance()
             reflection = farbe.reflection()
-            black2 = black1
-            black1 = reflection
             if distance > 250:
                 distance = 250
             elif distance < 150:
                 distance = 150
         beans *= -1
-        start1 = int(time.time())
+        
     
-    end1 = int(time.time())
-    time_dif1 = abs(end1-start1)
-    speed = (distance-150) * 6 # results in speed between 0 and 300
-    angle = 180
-    drife.drive(-speed, angle*beans-(time_dif1*6))
+    speed = (distance-150) * 12 # results in speed between 0 and 300
+    angle = 40
 
+    drife.drive(speed, angy)
+    angy = angle*beans*(abs(zickzack-44)/80)
 
 
 
