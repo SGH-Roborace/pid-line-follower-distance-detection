@@ -70,7 +70,7 @@ while True:
 
 
 
-
+'''
 black = 8
 white = 80
 mid = (white - black)/2
@@ -88,7 +88,7 @@ def set_distance():
         elif distance < 150:
             distance = 150
 
-'''
+
 threading.Thread(target=set_distance).start()
 
 while True:
