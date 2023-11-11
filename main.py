@@ -88,7 +88,7 @@ def set_distance():
         elif distance < 150:
             distance = 150
 
-
+'''
 threading.Thread(target=set_distance).start()
 
 while True:
@@ -106,7 +106,7 @@ while True:
         reflection = 80
     elif reflection < 8:
         reflection = 8
-    '''
+    
     speed = int((distance-150) * 3 - abs((reflection-8-35)/35)**3*100) # results in speed between 0 and 300
     angle = (reflection-8-36) * -2.4
     drife.drive(min(-speed, 0), angle)
