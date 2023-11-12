@@ -43,38 +43,49 @@ integral += error
 derivative = error - last_error
 '''
 angy = 0
+drife.reset()
 while True:
     distance = weg.distance()
     reflection = farbe.reflection()
-    zickzack += reflection
-    zickzack *= 2
+    
     if distance > 250:
         distance = 250
     elif distance < 150:
         distance = 150
 
-    if reflection < 20:
+    if reflection < 10:
+        angs = drife.angle()
+        drife.reset()
         angle = 40
         angy = -angle*beans*(reflection/10)
-        while reflection < 70:
-            zickzack += reflection
-            zickzack *= 2
+        while reflection < 40:
+
             speed = (distance-150) * 6 # results in speed between 0 and 300
-            drife.drive(max(speed, 0), angle*beans*(abs(zickzack-30)/80))
+            drife.drive(max(speed, 0), angle*beans*(abs(reflection-30)/80))
             distance = weg.distance()
             reflection = farbe.reflection()
             if distance > 250:
                 distance = 250
             elif distance < 150:
                 distance = 150
+        while reflection < 70:
+            speed = (distance-150) * 6
+            drife.drive(max(speed, 0), -angle*beans*(abs(reflection)/80))
+            distance = weg.distance()
+            reflection = farbe.reflection()
+            if distance > 250:
+                distance = 250
+            elif distance < 150:
+                distance = 150
+
+
         beans *= -1
         
     
     speed = (distance-150) * 12 # results in speed between 0 and 300
-    angle = 40
-
+    angle = 360
+    angy = angle*beans*(reflection/80*angs/20)+30
     drife.drive(speed, angy)
-    angy = angle*beans*(abs(zickzack-44)/80)
 
 
 
