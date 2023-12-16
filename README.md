@@ -27,15 +27,20 @@ Here are some pictures if you want to build the robot:
 
 From the side:
 https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Build/SideView.jpg
+![SideView](https://github.com/SGH-Roborace/pid-line-follower-distance-detection/assets/83182133/10ada764-2e34-42de-b770-7815e6d8a899)
 
 The inside:
 https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Build/InsideView.jpg
+![InsideView](https://github.com/SGH-Roborace/pid-line-follower-distance-detection/assets/83182133/7a80b36b-24f3-470f-883e-f7efe54320d7)
 
 The front:
 https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Build/FrontView.jpg
+![FrontView](https://github.com/SGH-Roborace/pid-line-follower-distance-detection/assets/83182133/4964ac8f-8956-44d7-80d4-01848e2ae2cb)
 
 The bottom:
 https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Build/BottomView.jpg
+![BottomView](https://github.com/SGH-Roborace/pid-line-follower-distance-detection/assets/83182133/63fce3eb-b1e4-4914-93d4-89186abb53bb)
 
 The back:
 https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Build/BackView.jpg
+![BackView](https://github.com/SGH-Roborace/pid-line-follower-distance-detection/assets/83182133/6062b27b-f59a-4a5d-9a54-3938cc152980)
