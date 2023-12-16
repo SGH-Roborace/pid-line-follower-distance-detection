@@ -14,6 +14,8 @@ we went from trying to use a pid to just zigzagging as tests showwed it was meas
 (we went from upper 11 seconds for a full circle rotation to just under 8)
 NOTE: the zigzag robot used a slightly different build as the original if anyone wants to build it they will have to go off the video supplied to modify the original
 
+This is a Project for a competitive event hosted by the university stuttgart for more info visit:
+https://www.ist.uni-stuttgart.de/de/lehre/roborace/
 
 our team name is Sgh team 2 and we passed the qualifying rounds on the 2023.11.10(ISO-8601)
 with a simple line follower using a brightness spectrum function
@@ -21,7 +23,6 @@ Following the qualifiers we passed the semi finals
 and lost in the finals at 15th place utilising the same program we used for the qualifiers and just increasing the speed
 as exams prevented us from spending more time optimising the robot
 
-https://www.ist.uni-stuttgart.de/de/lehre/roborace/
 
 Here are some pictures if you want to build the robot:
 
