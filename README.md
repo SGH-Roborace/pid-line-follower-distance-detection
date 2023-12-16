@@ -17,6 +17,9 @@ NOTE: the zigzag robot used a slightly different build as the original if anyone
 This is a Project for a competitive event hosted by the university stuttgart for more info visit:
 https://www.ist.uni-stuttgart.de/de/lehre/roborace/
 
+for more info about the specific challange visit:
+https://github.com/SGH-Roborace/pid-line-follower-distance-detection/blob/main/PicsAndVids/Aufgabenstellung_Roborace2023.pdf
+
 our team name is Sgh team 2 and we passed the qualifying rounds on the 2023.11.10(ISO-8601)
 with a simple line follower using a brightness spectrum function
 Following the qualifiers we passed the semi finals
