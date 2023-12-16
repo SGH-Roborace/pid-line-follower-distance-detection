@@ -43,7 +43,7 @@ integral += error
 derivative = error - last_error
 '''
 angy = 0
-drife.reset()
+
 while True:
     distance = weg.distance()
     reflection = farbe.reflection()
@@ -54,8 +54,6 @@ while True:
         distance = 150
 
     if reflection < 10:
-        angs = drife.angle()
-        drife.reset()
         angle = 40
         angy = -angle*beans*(reflection/10)
         while reflection < 40:
@@ -84,7 +82,7 @@ while True:
     
     speed = (distance-150) * 12 # results in speed between 0 and 300
     angle = 360
-    angy = angle*beans*(reflection/80*angs/20)+30
+    angy = angle*beans*(reflection/80)+30
     drife.drive(speed, angy)
 
 
